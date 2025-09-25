@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proyectos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="cover.css" rel="stylesheet" />
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+      .carousel-item img {
+        object-fit: cover;
+        height: 100vh;
+        width: 100%;
+        filter: brightness(0.5);
+      }
+      .cover-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+      
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      
+      .project-card img {
+        transition: opacity 0.3s ease;
+      }
+      
+      .project-card:hover img {
+        opacity: 0.9;
+      }
+      
+      .modal-content {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .modal-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-white">
+      <header class="mb-auto">
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="../index.html" class="mb-0 text-start h3 text-white text-decoration-none">Raúl García</a>
+            <nav class="navbar navbar-expand-md p-0">
+                <button class="navbar-toggler d-block d-md-none ms-2" type="button" aria-label="Toggle navigation" onclick="document.getElementById('mobileNav').classList.toggle('show')">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
+                <ul class="navbar-nav ms-auto flex-row d-none d-md-flex" id="desktopNav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./SobreMi.html">Sobre mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./proyectos.html">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./contactos.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./redes.html">Redes</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto flex-column d-md-none collapse" id="mobileNav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./SobreMi.html">Sobre mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./proyectos.html">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./contactos.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mx-2" href="./redes.html">Redes</a>
+                    </li>
+                </ul>
+            </nav>
+            <style>
+                @media (max-width: 767.98px) {
+                    #mobileNav.collapse.show {
+                        display: flex !important;
+                    }
+                    #mobileNav.collapse {
+                        display: none !important;
+                    }
+                    #mobileNav.flex-column {
+                        background: rgba(0,0,0,0.85);
+                        border-radius: 0.5rem;
+                        padding: 0.5rem 1rem;
+                        position: absolute;
+                        right: 0;
+                        top: 2.5rem;
+                        z-index: 10;
+                    }
+                }
+            </style>
+        </div>
+      </header>
+
+      <main class="px-3 p-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <!-- Proyecto 1: 51 sesión ordinaria del Consejo de Derechos Humanos -->
+          <div class="col">
+            <div class="card project-card" style="cursor: pointer;" onclick="openModal('modal1')">
+              <img src="../media/proyecto1.avif" class="card-img-top" alt="51 sesión ordinaria del Consejo de Derechos Humanos">
+              <div class="card-body">
+                <h5 class="card-title">51° Sesión Ordinaria del Consejo de Derechos Humanos</h5>
+                <p class="card-text text-muted">Haz clic para ver detalles</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 2: Foro de Pueblos -->
+          <div class="col">
+            <div class="card project-card" style="cursor: pointer;" onclick="openModal('modal2')">
+              <img src="../media/Proyecto2.avif" class="card-img-top" alt="Foro de Pueblos">
+              <div class="card-body">
+                <h5 class="card-title">Foro de Pueblos</h5>
+                <p class="card-text text-muted">Haz clic para ver detalles</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 3: Ilustraciones -->
+          <div class="col">
+            <div class="card project-card" style="cursor: pointer;" onclick="openModal('modal3')">
+              <img src="../media/Proyecto3.avif" class="card-img-top" alt="Ilustraciones">
+              <div class="card-body">
+                <h5 class="card-title">Ilustraciones</h5>
+                <p class="card-text text-muted">Haz clic para ver detalles</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 4: Diseño para redes sociales -->
+          <div class="col">
+            <div class="card project-card" style="cursor: pointer;" onclick="openModal('modal4')">
+              <img src="../media/Proyecto4.avif" class="card-img-top" alt="Diseño para redes sociales">
+              <div class="card-body">
+                <h5 class="card-title">Diseño para Redes Sociales</h5>
+                <p class="card-text text-muted">Haz clic para ver detalles</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 5: Campaña de Canon de Agua -->
+          <div class="col">
+            <div class="card project-card" style="cursor: pointer;" onclick="openModal('modal5')">
+              <img src="../media/Proyecto5.avif" class="card-img-top" alt="Campaña de Canon de Agua">
+              <div class="card-body">
+                <h5 class="card-title">Campaña de Canon de Agua</h5>
+                <p class="card-text text-muted">Haz clic para ver detalles</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 6: Stickers ilustrados -->
+          <div class="col">
+            <div class="card project-card" style="cursor: pointer;" onclick="openModal('modal6')">
+              <img src="../media/Proyecto6.avif" class="card-img-top" alt="Stickers ilustrados">
+              <div class="card-body">
+                <h5 class="card-title">Stickers Ilustrados</h5>
+                <p class="card-text text-muted">Haz clic para ver detalles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="mt-auto text-white-50">
+        <p>© 2025 Raúl García · <a href="./contactos.html" class="text-white">Contacto</a></p>
+      </footer>
+    </div>
+
+    <!-- Modales de Proyectos -->
+    
+    <!-- Modal 1: 51 sesión ordinaria del Consejo de Derechos Humanos -->
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modal1Label">51° Sesión Ordinaria del Consejo de Derechos Humanos</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../media/proyecto1.avif" class="img-fluid rounded mb-3" alt="51 sesión ordinaria">
+                <img src="../media/51CDH/Op2_2x-100.jpg" class="img-fluid rounded mb-3" alt="Imagen adicional del proyecto">
+              </div>
+              <div class="col-md-6">
+                <p>La 51° sesión ordinaria del Consejo de Derechos Humanos fue especialmente importante para Honduras por su relación con compromisos de género y derechos humanos.</p>
+                <p>Creé y presenté la propuesta visual para la campaña de cobertura del evento en prensa y redes sociales.</p>
+                <p>Desarrollé una identidad que transmitió la importancia del evento en todos los canales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Foro de Pueblos -->
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modal2Label">Foro de Pueblos</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../media/Proyecto2.avif" class="img-fluid rounded mb-3" alt="Foro de Pueblos">
+                <img src="../media/Foro/500216162_18014775923718956_1276318317044787115_n.jpg" class="img-fluid rounded mb-3" alt="Foro de Pueblos - Imagen 1">
+                <img src="../media/Foro/500250715_18014775914718956_869591715755347063_n.jpg" class="img-fluid rounded mb-3" alt="Foro de Pueblos - Imagen 2">
+                <img src="../media/Foro/500266675_18014775905718956_5380307108331141718_n.jpg" class="img-fluid rounded mb-3" alt="Foro de Pueblos - Imagen 3">
+              </div>
+              <div class="col-md-6">
+                <p>En el marco del día de la diversidad cultural y biológica organizamos un foro para conmemorar a las comunidades de Honduras, compartir experiencias y abrir un espacio de diálogo.</p>
+                <p>Desarrollé la identidad visual del evento tomando como base ilustraciones del SECAPPH y expandí la línea gráfica integrando elementos culturales y biológicos que representaran a todas las comunidades participantes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Ilustraciones -->
+    <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modal3Label">Ilustraciones</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../media/Proyecto3.avif" class="img-fluid rounded mb-3" alt="Ilustraciones">
+                <img src="../media/Libritos/Portada Librito_2x-100.jpg" class="img-fluid rounded mb-3" alt="Portada del librito">
+                <img src="../media/Libritos/Mesa de trabajo 12 copia 8_2x-100.jpg" class="img-fluid rounded mb-3" alt="Página del librito 1">
+                <img src="../media/Libritos/Mesa de trabajo 12 copia 9_2x-100.jpg" class="img-fluid rounded mb-3" alt="Página del librito 2">
+                <img src="../media/Libritos/Mesa de trabajo 12 copia 11_2x-100.jpg" class="img-fluid rounded mb-3" alt="Página del librito 3">
+                <img src="../media/Libritos/Mesa de trabajo 12 copia 13_2x-100.jpg" class="img-fluid rounded mb-3" alt="Página del librito 4">
+              </div>
+              <div class="col-md-6">
+                <p>En el marco de un proyecto educativo, se necesitaba un material didáctico para niños y niñas de 8 años en adelante, que transmitiera de manera sencilla la importancia del manejo responsable de residuos eléctricos y electrónicos.</p>
+                <p>Diseñé la portada e ilustraciones con un estilo amigable y accesible, priorizando colores vivos, trazos simples y elementos cercanos a la niñez. Además, preparé los archivos listos para impresión y adaptación en distintos formatos de distribución.</p>
+                <p>Se creó un librito para colorear atractivo, funcional y pedagógico, que facilita la comprensión del tema y promueve hábitos responsables en las nuevas generaciones.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Diseño para redes sociales -->
+    <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modal4Label">Diseño para Redes Sociales</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../media/Proyecto4.avif" class="img-fluid rounded mb-3" alt="Diseño para redes sociales">
+                <img src="../media/Posts/Portada.png" class="img-fluid rounded mb-3" alt="Portada de redes sociales">
+                <img src="../media/Posts/Cafetaleros_1.png" class="img-fluid rounded mb-3" alt="Post Cafetaleros">
+                <img src="../media/Posts/Productores Cafetaleros-100.jpg" class="img-fluid rounded mb-3" alt="Productores Cafetaleros">
+                <img src="../media/Posts/InvitacionJornadaAstronomica.jpg" class="img-fluid rounded mb-3" alt="Invitación Jornada Astronómica">
+                <img src="../media/Posts/crimson1-100.jpg" class="img-fluid rounded mb-3" alt="Post Crimson">
+              </div>
+              <div class="col-md-6">
+                <p>La institución necesitaba una imagen más moderna y amigable, enfocada en entornos digitales.</p>
+                <p>Definí una personalidad visual para redes que prioriza el mensaje y la comprensión, creé plantillas, diseñé la nueva página web y otros recursos.</p>
+                <p>También apoyé en la estrategia de comunicación para otras campañas menores diversas, principalmente en canales digitales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Campaña de Canon de Agua -->
+    <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="modal5Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modal5Label">Campaña de Canon de Agua</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../media/Proyecto5.avif" class="img-fluid rounded mb-3" alt="Campaña de Canon de Agua">
+                <img src="../media/Canon/400vecesmás.jpg" class="img-fluid rounded mb-3" alt="400 veces más">
+                <img src="../media/Canon/agua para todos-100.jpg" class="img-fluid rounded mb-3" alt="Agua para todos">
+                <img src="../media/Canon/canon tri-100.jpg" class="img-fluid rounded mb-3" alt="Canon tri">
+                <img src="../media/Canon/costo-100.jpg" class="img-fluid rounded mb-3" alt="Costo">
+                <img src="../media/Canon/cuadrado-100.jpg" class="img-fluid rounded mb-3" alt="Cuadrado">
+                <img src="../media/Canon/equidad-100.jpg" class="img-fluid rounded mb-3" alt="Equidad">
+              </div>
+              <div class="col-md-6">
+                <p>Las familias en honduras pagan hasta 4,000 veces más por agua que las empresas, un hecho que por sí solo se vuelve escandaloso y definió esta campaña.</p>
+                <p>Lideré el concepto visual y la estrategia en redes, distinguiéndolo de la imagen de gobierno, adaptando estilos y canales para una amplia audiencia. Traduciendo un mensaje técnico en cápsulas para todo público.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 6: Stickers ilustrados -->
+    <div class="modal fade" id="modal6" tabindex="-1" aria-labelledby="modal6Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modal6Label">Stickers Ilustrados</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../media/Proyecto6.avif" class="img-fluid rounded mb-3" alt="Stickers ilustrados">
+                <img src="../media/Stickers/Quetzal_2x.png" class="img-fluid rounded mb-3" alt="Sticker Quetzal">
+                <img src="../media/Stickers/Rana_2x.png" class="img-fluid rounded mb-3" alt="Sticker Rana">
+                <img src="../media/Stickers/Ratoso_2x.png" class="img-fluid rounded mb-3" alt="Sticker Ratoso">
+                <img src="../media/Stickers/Simio_2x.png" class="img-fluid rounded mb-3" alt="Sticker Simio">
+                <img src="../media/Stickers/Tigrillo_2x.png" class="img-fluid rounded mb-3" alt="Sticker Tigrillo">
+              </div>
+              <div class="col-md-6">
+                <p>Dentro de una serie de ilustraciones diseñadas para convertirse en stickers coleccionables, se buscaba transmitir identidad y atractivo visual en piezas pequeñas pero de alto impacto.</p>
+                <p>Realicé la ilustración digital con trazos detallados y paleta de colores vibrante, preparé los contornos de corte (cut line) y ajusté el archivo para cumplir con los estándares de impresión de stickers.</p>
+                <p>Obtención de un sticker listo para producción, con un diseño atractivo y adaptable a diferentes aplicaciones gráficas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openModal(modalId) {
+        var modal = new bootstrap.Modal(document.getElementById(modalId));
+        modal.show();
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
